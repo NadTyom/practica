@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddTeacher from "./AddTeacher";
 import "./App.css";
 import Dashboard from "./Dashboard";
 
 function App() {
   const [teachers, setTeachers] = useState([]);
+  const [result, setResult] = useState([]);
+  useEffect(() => {
+    fetch("teachers.json")
+      .then((r) => r.json())
+      .then((r) => {
+        setTeachers(r.data);
+        setResult(r.data);
+      });
+  }, []);
   const skills = [
     "HTML",
     "CSS",
@@ -21,15 +30,14 @@ function App() {
     "C++",
   ];
   const add = (t) => {
-    setTeachers({ ...teachers, t });
+    setTeachers([...teachers, t]);
   };
-  console.log(teachers);
   return (
     <div className="App">
-      <h1>Teacher App</h1>
+      <h1>Teacher App. / {teachers.length} are teachers here</h1>
       <div id="main">
         <AddTeacher data={skills} addTeacherFunction={add} />
-        <Dashboard />
+        <Dashboard dataTeachers={result} skills={skills} />
       </div>
     </div>
   );

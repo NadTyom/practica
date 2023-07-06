@@ -10,3 +10,24 @@
    color: red;
    font-size: 34px;
 }
+.checkbox-list{
+  width: 800px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 ;
+  padding: 0;
+ 
+}
+
+.teachers{
+  width: 800px;
+  display: flex;
+  flex-wrap:wrap ;
+  height: auto;
+}
+.teacher{
+  width: 33%;
+  border: 1px solid;
+}

@@ -22,7 +22,7 @@ export default function AddTeacher({ data, addTeacherFunction }) {
     } else {
       setError("");
       addTeacherFunction(teacher);
-      setTeacher({ name: "", age: "", skills: []});
+      setTeacher({ name: "", age: "", skills: [] });
     }
   };
 

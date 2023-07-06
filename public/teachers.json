@@ -1,0 +1,17 @@
+{
+  "data": [
+    { "name": "Armen",
+     "age": 25,
+      "skills": ["React", "JS", "HTML", "CSS"] },
+    {
+      "name": "Tigran",
+      "age": 28,
+      "skills": ["Python", "C#", "OOP", "SQL", "Django"]
+    },
+    {
+      "name": "Vahe",
+      "age": 32,
+      "skills": ["React", "Angular", "Node", "CSS", "Java", "C++"]
+    }
+  ]
+}
