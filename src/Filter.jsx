@@ -1,19 +1,26 @@
 import React, { useState } from "react";
 
-export default function Filter({ skills }) {
-  const [list, SetList] = useState(
+export default function Filter({ skills, updateList }) {
+  const [list, setList] = useState(
     skills.map((elm) => {
       return { title: elm, active: false };
     })
   );
+  const toUpdate = (e, i) => {
+    list[i].active = e.target.checked;
+    setList([...list]);
+    updateList(list);
+  };
   return (
     <div>
-      <p>Lets go to search!</p>
+      <p>
+        Lets <span>go </span> to search!
+      </p>
       <div className="checkbox-list">
-        {skills.map((elm, i) => {
+        {list.map((elm, i) => {
           return (
             <div key={i}>
-              <input type="checkbox" />
+              <input type="checkbox" onChange={(e) => toUpdate(e, i)} />
               {elm.title}
             </div>
           );

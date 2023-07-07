@@ -31,3 +31,8 @@
   width: 33%;
   border: 1px solid;
 }
+span {
+  color: red;
+  font-style: italic;
+  font-size: 24px;
+}

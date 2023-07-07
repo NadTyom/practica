@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import AddTeacher from "./AddTeacher";
 import "./App.css";
 import Dashboard from "./Dashboard";
+import { searchBySkills } from "./Lib";
 
 function App() {
   const [teachers, setTeachers] = useState([]);
@@ -31,13 +32,23 @@ function App() {
   ];
   const add = (t) => {
     setTeachers([...teachers, t]);
+    setResult([...teachers,t])
   };
+  const updateList =(list)=>{
+    list = list.filter(a=> a.active).map((a)=>a.title)
+    let data =searchBySkills(teachers,list);
+    setResult(data)
+  }
   return (
     <div className="App">
       <h1>Teacher App. / {teachers.length} are teachers here</h1>
       <div id="main">
         <AddTeacher data={skills} addTeacherFunction={add} />
-        <Dashboard dataTeachers={result} skills={skills} />
+        <Dashboard
+          updateList={updateList}
+          dataTeachers={result}
+          skills={skills}
+        />
       </div>
     </div>
   );
